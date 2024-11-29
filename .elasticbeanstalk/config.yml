@@ -4,6 +4,8 @@ branch-defaults:
     group_suffix: null
   main:
     environment: your-environment-name
+  master:
+    environment: test-eb
 environment-defaults:
   your-environment-name:
     branch: null
