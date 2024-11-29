@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Create Order</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="customer" class="form-label">Customer</label>
+    <select class="form-control" name="customer" required>
+      {% for customer in customers %}
+      <option value="{{ customer.id }}">{{ customer.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="product" class="form-label">Product</label>
+    <select class="form-control" name="product" required>
+      {% for product in products %}
+      <option value="{{ product.id }}">{{ product.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity" required />
+  </div>
+  <button type="submit" class="btn btn-success">Create Order</button>
+</form>
+{% endblock %}

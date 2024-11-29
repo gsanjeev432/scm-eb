@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %} {% block title %}Custom Admin -
+SCM{%endblock %} {% block content %}
+<h1>Welcome to the Custom SCM Admin Panel</h1>
+<div>
+  <a href="{% url 'admin:dashboard' %}">Go to Dashboard</a>
+</div>
+<div class="admin-navigation">
+  <!-- Custom navigation or widgets -->
+</div>
+{% endblock %}

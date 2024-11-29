@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Suppliers</h2>
+<a href="{% url 'add_supplier' %}" class="btn btn-primary">Add Supplier</a>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for supplier in suppliers %}
+    <tr>
+      <td>{{ supplier.name }}</td>
+      <td>{{ supplier.email }}</td>
+      <td>{{ supplier.phone }}</td>
+      <td>{{ supplier.company_name }}</td>
+      <td>{{ supplier.location }}</td>
+      <td>
+        <a
+          href="{% url 'raw_materials_list' supplier.id %}"
+          class="btn btn-info"
+          >View Materials</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

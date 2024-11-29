@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Orders</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Customer</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ order.customer.name }}</td>
+      <td>{{ order.product.name }}</td>
+      <td>{{ order.quantity }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order.created_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/orders/add/" class="btn btn-primary">Add Order</a>
+{% endblock %}

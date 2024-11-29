@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Customers</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for customer in customers %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.address }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/customers/add/" class="btn btn-primary">Add Customer</a>
+{% endblock %}

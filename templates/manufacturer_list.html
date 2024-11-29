@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Manufacturers</h2>
+<a href="{% url 'add_manufacturer' %}" class="btn btn-primary"
+  >Add Manufacturer</a
+>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manufacturer in manufacturers %}
+    <tr>
+      <td>{{ manufacturer.name }}</td>
+      <td>{{ manufacturer.email }}</td>
+      <td>{{ manufacturer.phone }}</td>
+      <td>{{ manufacturer.company_name }}</td>
+      <td>{{ manufacturer.location }}</td>
+      <td>
+        <a href="{% url 'product_list' manufacturer.id %}" class="btn btn-info"
+          >View Products</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Suppliers</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Email</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for supplier in suppliers %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ supplier.name }}</td>
+      <td>{{ supplier.company_name }}</td>
+      <td>{{ supplier.email }}</td>
+      <td>{{ supplier.location }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/suppliers/add/" class="btn btn-primary">Add Supplier</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Raw Materials for {{ supplier.name }}</h2>
+<a href="{% url 'add_raw_material' supplier.id %}" class="btn btn-primary"
+  >Add Raw Material</a
+>
+<table class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price per Unit</th>
+      <th>Available Quantity</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for material in materials %}
+    <tr>
+      <td>{{ material.name }}</td>
+      <td>{{ material.price_per_unit }}</td>
+      <td>{{ material.available_quantity }}</td>
+      <td>{{ material.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

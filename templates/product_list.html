@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Products for {{ manufacturer.name }}</h2>
+<a href="{% url 'add_product' manufacturer.id %}" class="btn btn-primary"
+  >Add Product</a
+>
+<table class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
