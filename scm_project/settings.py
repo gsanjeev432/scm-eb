@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,16 +153,18 @@ AWS_SQS_QUEUE_URL = os.environ.get('AWS_SQS_QUEUE_URL')
 AWS_SNS_TOPIC_ARN = os.environ.get('AWS_SNS_TOPIC_ARN')
 
 # RDS Settings
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('RDS_DB_NAME'),
-        'USER': os.environ.get('RDS_USERNAME'),
-        'PASSWORD': os.environ.get('RDS_PASSWORD'),
-        'HOST': os.environ.get('RDS_HOSTNAME'),
-        'PORT': os.environ.get('RDS_PORT', '5432'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('RDS_DB_NAME'),
+#         'USER': os.environ.get('RDS_USERNAME'),
+#         'PASSWORD': os.environ.get('RDS_PASSWORD'),
+#         'HOST': os.environ.get('RDS_HOSTNAME'),
+#         'PORT': os.environ.get('RDS_PORT', '5432'),
+#     }
+# }
+
+
 
 # Configure static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
